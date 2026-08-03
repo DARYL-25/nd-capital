@@ -1,7 +1,44 @@
 {
-  "updated_at": null,
-  "date_label": null,
-  "headline": null,
-  "body": [],
-  "tags": []
+  "updated_at": "2026-08-03",
+  "status": "published",
+  "latest": {
+    "date": "2026-08-03",
+    "slug": "2026-08-03",
+    "url": "briefs/2026-08-03.html",
+    "title": "The AI trade stopped being about demand",
+    "standfirst": "Chips are in a bear market while memory prices rise. That is not a demand signal — it is the market repricing who pays for the build-out.",
+    "sections": [
+      "Where we start the week",
+      "What actually changed",
+      "How we are positioned into it",
+      "The week ahead",
+      "The one thing to watch"
+    ],
+    "tickers": [
+      "AMD",
+      "PLTR",
+      "ANET",
+      "MU",
+      "NVDA",
+      "ORCL",
+      "AMZN",
+      "GOOGL"
+    ],
+    "tags": [
+      "Macro",
+      "Semiconductors",
+      "AI Capex",
+      "Earnings Preview",
+      "Memory"
+    ]
+  },
+  "archive_count": 1,
+  "archive": [
+    {
+      "date": "2026-08-03",
+      "url": "briefs/2026-08-03.html"
+    }
+  ],
+  "cadence": "Every trading morning, before the US open.",
+  "disclaimer": "Research and education, not investment advice."
 }

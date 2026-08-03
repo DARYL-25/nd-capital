@@ -1,0 +1,151 @@
+{
+  "updated_at": "2026-08-02",
+  "themes": [
+    {
+      "slug": "AI-Compute-GPU",
+      "name": "AI Compute & GPU",
+      "stage": "Consensus \u2014 actively de-rating",
+      "blurb": "Merchant accelerators: the chips that train and serve the models, and the cycle everything else in technology is currently priced against.",
+      "tickers": [
+        "NVDA",
+        "AMD",
+        "TSM",
+        "AVGO",
+        "SMCI",
+        "ORCL",
+        "AMZN",
+        "MU"
+      ]
+    },
+    {
+      "slug": "Memory-HBM-DRAM",
+      "name": "Memory, HBM & DRAM",
+      "stage": "Accelerating fundamentally \u2014 de-rating in price",
+      "blurb": "The largest divergence in the market: contract prices rising double digits a quarter while the equities fall.",
+      "tickers": [
+        "MU",
+        "SK-Hynix-000660",
+        "LRCX",
+        "AMAT",
+        "KLAC",
+        "TSM"
+      ]
+    },
+    {
+      "slug": "Advanced-Packaging",
+      "name": "Advanced Packaging",
+      "stage": "Accelerating",
+      "blurb": "Chips stopped getting faster by shrinking alone. Now they get faster by being stacked \u2014 and stacking capacity is the industry's real gate.",
+      "tickers": [
+        "TSM",
+        "KLAC",
+        "AMAT",
+        "MU",
+        "SK-Hynix-000660"
+      ]
+    },
+    {
+      "slug": "Semicap-Equipment",
+      "name": "Semiconductor Capital Equipment",
+      "stage": "Accelerating",
+      "blurb": "The tools that build the fabs. Two capex cycles \u2014 logic and memory \u2014 are now overlapping in the same order books.",
+      "tickers": [
+        "ASML",
+        "LRCX",
+        "KLAC",
+        "AMAT"
+      ]
+    },
+    {
+      "slug": "Datacenter-Power-Cooling",
+      "name": "Datacenter Power & Cooling",
+      "stage": "Accelerating",
+      "blurb": "The unglamorous physical constraint. A rack you cannot cool is a rack you cannot deploy, whatever the chip supply looks like.",
+      "tickers": [
+        "VRT",
+        "SMCI"
+      ]
+    },
+    {
+      "slug": "Custom-Silicon-ASIC",
+      "name": "Custom Silicon & ASIC",
+      "stage": "Accelerating",
+      "blurb": "The largest buyers of accelerators are trying to stop paying merchant margins. That shift has a supplier, and the supplier is listed.",
+      "tickers": [
+        "AVGO",
+        "MRVL",
+        "GOOGL",
+        "AMZN",
+        "ARM",
+        "TSM"
+      ]
+    },
+    {
+      "slug": "Networking-Optics",
+      "name": "Networking & Optics",
+      "stage": "Consensus",
+      "blurb": "Training clusters are networks first and computers second. The question is whether integrated systems or merchant silicon capture the value.",
+      "tickers": [
+        "AVGO",
+        "ANET",
+        "MRVL"
+      ]
+    },
+    {
+      "slug": "AI-Software-Monetization",
+      "name": "AI Software Monetization",
+      "stage": "Crowded \u2014 breaking",
+      "blurb": "The layer where AI is supposed to become revenue rather than cost. So far the evidence is thin and the multiples are not.",
+      "tickers": [
+        "PLTR",
+        "CRM",
+        "MSFT",
+        "ORCL",
+        "GOOGL",
+        "META"
+      ]
+    },
+    {
+      "slug": "Edge-AI-Devices",
+      "name": "Edge AI Devices",
+      "stage": "Emerging \u2014 unproven",
+      "blurb": "AI that runs on the device rather than in the datacentre. Structurally attractive, and still without evidence that consumers will pay for it.",
+      "tickers": [
+        "AAPL",
+        "QCOM",
+        "ARM"
+      ]
+    },
+    {
+      "slug": "Sovereign-AI",
+      "name": "Sovereign AI",
+      "stage": "Emerging",
+      "blurb": "Governments building national AI capacity. Real money, long timelines, and announcements that considerably outpace deliveries.",
+      "tickers": [
+        "NVDA",
+        "TSM"
+      ]
+    },
+    {
+      "slug": "Robotics-Physical-AI",
+      "name": "Robotics & Physical AI",
+      "stage": "Emerging \u2014 narrative only",
+      "blurb": "AI that acts in the physical world. Genuinely large if it works, and currently supported by demonstrations rather than revenue.",
+      "tickers": [
+        "NVDA",
+        "META"
+      ]
+    },
+    {
+      "slug": "Quantum-Emerging",
+      "name": "Quantum & Emerging Compute",
+      "stage": "Emerging \u2014 speculative",
+      "blurb": "Genuinely important if it arrives, genuinely unpredictable as to when. We cover it to watch it, not to own it.",
+      "tickers": [
+        "GOOGL",
+        "MSFT",
+        "NVDA"
+      ]
+    }
+  ]
+}

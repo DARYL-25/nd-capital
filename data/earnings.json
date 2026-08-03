@@ -1,11 +1,297 @@
 {
-  "updated_at": null,
-  "week_of": null,
-  "days": {
-    "monday": [],
-    "tuesday": [],
-    "wednesday": [],
-    "thursday": [],
-    "friday": []
-  }
+  "updated_at": "2026-08-03",
+  "source": "Alpha Vantage EARNINGS_CALENDAR, queried 2026-08-03",
+  "confirmed_count": 4,
+  "unconfirmed_count": 18,
+  "upcoming": [
+    {
+      "ticker": "AMD",
+      "company": "Advanced Micro Devices Inc",
+      "our_earnings_risk": "Very high",
+      "our_rating": "Underweight",
+      "conviction": "Medium",
+      "url": "coverage/AMD.html",
+      "report_date": "2026-08-04",
+      "fiscal_period_end": "2026-06-30",
+      "consensus_eps": 1.35,
+      "time_of_day": "post-market",
+      "date_source": "Alpha Vantage EARNINGS_CALENDAR, queried 2026-08-03",
+      "date_status": "Confirmed by vendor calendar"
+    },
+    {
+      "ticker": "NVDA",
+      "company": "NVIDIA Corporation",
+      "our_earnings_risk": "High",
+      "our_rating": "Overweight",
+      "conviction": "High",
+      "url": "coverage/NVDA.html",
+      "report_date": "2026-08-26",
+      "fiscal_period_end": "2026-07-31",
+      "consensus_eps": 2.01,
+      "time_of_day": "post-market",
+      "date_source": "Alpha Vantage EARNINGS_CALENDAR, queried 2026-08-03",
+      "date_status": "Confirmed by vendor calendar"
+    },
+    {
+      "ticker": "AVGO",
+      "company": "Broadcom Inc",
+      "our_earnings_risk": "Medium",
+      "our_rating": "Overweight",
+      "conviction": "High",
+      "url": "coverage/AVGO.html",
+      "report_date": "2026-09-03",
+      "fiscal_period_end": "2026-07-31",
+      "consensus_eps": 2.83,
+      "time_of_day": null,
+      "date_source": "Alpha Vantage EARNINGS_CALENDAR, queried 2026-08-03",
+      "date_status": "Confirmed by vendor calendar"
+    },
+    {
+      "ticker": "GOOGL",
+      "company": "Alphabet Inc Class A",
+      "our_earnings_risk": "Medium",
+      "our_rating": "Overweight",
+      "conviction": "High",
+      "url": "coverage/GOOGL.html",
+      "report_date": "2026-10-28",
+      "fiscal_period_end": "2026-09-30",
+      "consensus_eps": 3.02,
+      "time_of_day": null,
+      "date_source": "Alpha Vantage EARNINGS_CALENDAR, queried 2026-08-03",
+      "date_status": "Confirmed by vendor calendar"
+    }
+  ],
+  "none_scheduled": [
+    {
+      "ticker": "META",
+      "company": "Meta Platforms Inc.",
+      "our_earnings_risk": "High",
+      "our_rating": "Neutral",
+      "conviction": "Low",
+      "url": "coverage/META.html",
+      "report_date": null,
+      "date_status": "No event scheduled in the next 3 months",
+      "date_source": "Alpha Vantage EARNINGS_CALENDAR, queried 2026-08-03"
+    },
+    {
+      "ticker": "AAPL",
+      "company": "Apple Inc.",
+      "our_earnings_risk": "Low",
+      "our_rating": "Neutral",
+      "conviction": "Medium",
+      "url": "coverage/AAPL.html",
+      "report_date": null,
+      "date_status": "No event scheduled in the next 3 months",
+      "date_source": "Alpha Vantage EARNINGS_CALENDAR, queried 2026-08-03"
+    }
+  ],
+  "date_not_confirmed": [
+    {
+      "ticker": "MU",
+      "company": "Micron Technology Inc",
+      "our_earnings_risk": "High",
+      "our_rating": "Overweight",
+      "conviction": "Medium",
+      "url": "coverage/MU.html",
+      "report_date": null,
+      "date_status": "Not confirmed — vendor daily request cap reached",
+      "date_source": null
+    },
+    {
+      "ticker": "CRM",
+      "company": "Salesforce Inc",
+      "our_earnings_risk": "Medium",
+      "our_rating": "Overweight",
+      "conviction": "Medium",
+      "url": "coverage/CRM.html",
+      "report_date": null,
+      "date_status": "Not confirmed — vendor daily request cap reached",
+      "date_source": null
+    },
+    {
+      "ticker": "ASML",
+      "company": "ASML Holding NV ADR",
+      "our_earnings_risk": "Medium",
+      "our_rating": "Overweight",
+      "conviction": "Medium",
+      "url": "coverage/ASML.html",
+      "report_date": null,
+      "date_status": "Not confirmed — vendor daily request cap reached",
+      "date_source": null
+    },
+    {
+      "ticker": "LRCX",
+      "company": "Lam Research Corp",
+      "our_earnings_risk": "Medium",
+      "our_rating": "Overweight",
+      "conviction": "Medium",
+      "url": "coverage/LRCX.html",
+      "report_date": null,
+      "date_status": "Not confirmed — vendor daily request cap reached",
+      "date_source": null
+    },
+    {
+      "ticker": "TSM",
+      "company": "Taiwan Semiconductor Manufacturing",
+      "our_earnings_risk": "Medium",
+      "our_rating": "Overweight",
+      "conviction": "High",
+      "url": "coverage/TSM.html",
+      "report_date": null,
+      "date_status": "Not confirmed — vendor daily request cap reached",
+      "date_source": null
+    },
+    {
+      "ticker": "KLAC",
+      "company": "KLA Corporation",
+      "our_earnings_risk": "Medium",
+      "our_rating": "Overweight",
+      "conviction": "Medium",
+      "url": "coverage/KLAC.html",
+      "report_date": null,
+      "date_status": "Not confirmed — vendor daily request cap reached",
+      "date_source": null
+    },
+    {
+      "ticker": "VRT",
+      "company": "Vertiv Holdings Co",
+      "our_earnings_risk": "High",
+      "our_rating": "Overweight",
+      "conviction": "Medium",
+      "url": "coverage/VRT.html",
+      "report_date": null,
+      "date_status": "Not confirmed — vendor daily request cap reached",
+      "date_source": null
+    },
+    {
+      "ticker": "SK-Hynix-000660",
+      "company": "SK hynix Inc. (KRX: 000660)",
+      "our_earnings_risk": "High",
+      "our_rating": "Overweight",
+      "conviction": "Medium",
+      "url": "coverage/SK-Hynix-000660.html",
+      "report_date": null,
+      "date_status": "Not confirmed — vendor daily request cap reached",
+      "date_source": null
+    },
+    {
+      "ticker": "SMCI",
+      "company": "Super Micro Computer Inc",
+      "our_earnings_risk": "High",
+      "our_rating": "Neutral",
+      "conviction": "Low",
+      "url": "coverage/SMCI.html",
+      "report_date": null,
+      "date_status": "Not confirmed — vendor daily request cap reached",
+      "date_source": null
+    },
+    {
+      "ticker": "ORCL",
+      "company": "Oracle Corporation",
+      "our_earnings_risk": "High",
+      "our_rating": "Neutral",
+      "conviction": "Low",
+      "url": "coverage/ORCL.html",
+      "report_date": null,
+      "date_status": "Not confirmed — vendor daily request cap reached",
+      "date_source": null
+    },
+    {
+      "ticker": "AMAT",
+      "company": "Applied Materials Inc",
+      "our_earnings_risk": "Medium",
+      "our_rating": "Neutral",
+      "conviction": "Low",
+      "url": "coverage/AMAT.html",
+      "report_date": null,
+      "date_status": "Not confirmed — vendor daily request cap reached",
+      "date_source": null
+    },
+    {
+      "ticker": "QCOM",
+      "company": "Qualcomm Incorporated",
+      "our_earnings_risk": "Medium",
+      "our_rating": "Neutral",
+      "conviction": "Medium",
+      "url": "coverage/QCOM.html",
+      "report_date": null,
+      "date_status": "Not confirmed — vendor daily request cap reached",
+      "date_source": null
+    },
+    {
+      "ticker": "MSFT",
+      "company": "Microsoft Corporation",
+      "our_earnings_risk": "Medium",
+      "our_rating": "Neutral",
+      "conviction": "Medium",
+      "url": "coverage/MSFT.html",
+      "report_date": null,
+      "date_status": "Not confirmed — vendor daily request cap reached",
+      "date_source": null
+    },
+    {
+      "ticker": "ANET",
+      "company": "Arista Networks",
+      "our_earnings_risk": "High",
+      "our_rating": "Neutral",
+      "conviction": "Medium",
+      "url": "coverage/ANET.html",
+      "report_date": null,
+      "date_status": "Not confirmed — vendor daily request cap reached",
+      "date_source": null
+    },
+    {
+      "ticker": "AMZN",
+      "company": "Amazon.com Inc",
+      "our_earnings_risk": "High",
+      "our_rating": "Underweight",
+      "conviction": "Medium",
+      "url": "coverage/AMZN.html",
+      "report_date": null,
+      "date_status": "Not confirmed — vendor daily request cap reached",
+      "date_source": null
+    },
+    {
+      "ticker": "MRVL",
+      "company": "Marvell Technology Group Ltd",
+      "our_earnings_risk": "High",
+      "our_rating": "Underweight",
+      "conviction": "Medium",
+      "url": "coverage/MRVL.html",
+      "report_date": null,
+      "date_status": "Not confirmed — vendor daily request cap reached",
+      "date_source": null
+    },
+    {
+      "ticker": "PLTR",
+      "company": "Palantir Technologies Inc.",
+      "our_earnings_risk": "Very high",
+      "our_rating": "Underweight",
+      "conviction": "Medium",
+      "url": "coverage/PLTR.html",
+      "report_date": null,
+      "date_status": "Not confirmed — vendor daily request cap reached",
+      "date_source": null
+    },
+    {
+      "ticker": "ARM",
+      "company": "Arm Holdings plc ADS",
+      "our_earnings_risk": "High",
+      "our_rating": "Underweight",
+      "conviction": "Medium",
+      "url": "coverage/ARM.html",
+      "report_date": null,
+      "date_status": "Not confirmed — vendor daily request cap reached",
+      "date_source": null
+    }
+  ],
+  "risk_scale": [
+    "Low",
+    "Medium",
+    "High",
+    "Very high"
+  ],
+  "_risk_note": "The earnings-risk score is our own judgement from the company deep dive — a read on how much the stock typically moves on results and how much is already priced in. It is not vendor data. Report dates are vendor data and are labelled with their status.",
+  "_coverage_note": "18 of 24 names carry no confirmed date. The market-data plan is capped at 25 requests a day and the cap was reached during the sweep. Estimated dates are not published as confirmed ones.",
+  "disclaimer": "Research and education, not investment advice."
 }
