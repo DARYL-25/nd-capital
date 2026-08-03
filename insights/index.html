@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insights — ND Capital</title>
+<meta name="description" content="Long-form research and methodology, written to teach the method rather than sell a view.">
+<meta property="og:title" content="Insights — ND Capital">
+<meta property="og:description" content="Long-form research and methodology, written to teach the method rather than sell a view.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="../assets/nd-capital-monogram.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body class="solid-header">
+
+<header id="header">
+  <div class="wrap nav">
+    <a class="nav-logo" href="../index.html" aria-label="ND Capital home">
+      <img src="../assets/nd-capital-reversed-horizontal-lockup.svg" alt="ND Capital"
+           onerror="this.onerror=null;this.src='../assets/nd-capital-reversed-horizontal-lockup.png';">
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../coverage/">Coverage</a></li><li><a href="../themes/">Themes</a></li><li><a href="../briefs/">Briefs</a></li><li><a href="../insights/" class="active">Insights</a></li><li><a href="../track-record.html">Track Record</a></li><li><a href="../methodology.html">Methodology</a></li>
+      <li><a href="../index.html#subscribe" class="btn btn-gold btn-sm">Subscribe</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="page-head">
+  <div class="wrap">
+    <div class="kicker">Learn with us</div>
+    <h1>Insights</h1>
+    <p class="lede">Long-form research and methodology, written to teach the method rather than sell a view.</p>
+  </div>
+</div>
+<section>
+  <div class="wrap">
+    <div class="rv"><ul class="feed"><li><a href="../insights/whats-already-in-the-price.html"><span class="date">3 Aug 2026</span><span><span class="ti">What's Already In the Price</span><span class="su">Why a company can beat consensus and fall 10% on the same afternoon</span><span class="kind">Education · 8 min read</span></span></a></li><li><a href="../insights/scoring-your-own-calls.html"><span class="date">3 Aug 2026</span><span><span class="ti">How to Score Your Own Calls</span><span class="su">Hit rate is the number everyone quotes and the least useful one to have</span><span class="kind">Methodology · 7 min read</span></span></a></li><li><a href="../insights/the-depreciation-wall.html"><span class="date">2 Aug 2026</span><span><span class="ti">The Depreciation Wall</span><span class="su">Why the AI trade broke while AI demand kept growing</span><span class="kind">Sector Primer · 9 min read</span></span></a></li><li><a href="../insights/reading-a-multiple.html"><span class="date">2 Aug 2026</span><span><span class="ti">A Multiple Is a Question, Not an Answer</span><span class="su">How to turn a P/E ratio into something you can actually be wrong about</span><span class="kind">Methodology · 8 min read</span></span></a></li></ul></div>
+  </div>
+</section>
+
+<section class="subscribe tight" id="subscribe">
+  <div class="wrap">
+    <div class="sub-card rv">
+      <div class="kicker" style="justify-content:center;">The Daily Brief</div>
+      <h2>Market intelligence in your inbox, every morning before the open.</h2>
+      <p>The morning brief, rating changes, and every note we publish. Free while in beta. No spam, unsubscribe anytime.</p>
+      <form class="sub-form" id="sub-form" data-live="false" action="" method="POST">
+        <input type="email" name="email" id="sub-email" placeholder="you@email.com" required aria-label="Email address">
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-gold" type="submit" id="sub-btn">Subscribe</button>
+      </form>
+      <div class="sub-msg" id="sub-msg" role="status" aria-live="polite"></div>
+      <div class="sub-note">Research and education only — not investment advice.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <img src="../assets/nd-capital-reversed-horizontal-lockup.png" alt="ND Capital">
+      <div class="foot-links">
+        <div class="col">
+          <h4>Research</h4>
+          <a href="../coverage/">Coverage universe</a>
+          <a href="../themes/">Themes</a>
+          <a href="../insights/">Insights</a>
+        </div>
+        <div class="col">
+          <h4>Daily</h4>
+          <a href="../briefs/">Morning briefs</a>
+          <a href="../index.html#subscribe">Subscribe</a>
+        </div>
+        <div class="col">
+          <h4>About</h4>
+          <a href="../methodology.html">Methodology</a>
+          <a href="../track-record.html">Track record</a>
+        </div>
+      </div>
+    </div>
+    <div class="disclaimer">
+      © 2026 ND Capital. All rights reserved. Site built 2026-08-03 20:08.<br><br>
+      <strong>Disclaimer:</strong> The content published on this website is for informational and educational purposes only and does not constitute investment advice, a recommendation, or an offer or solicitation to buy or sell any security. Ratings, target prices and analyses shown here reflect the output of an experimental, AI-assisted research process and may be incorrect or outdated. Market data is provided by third parties and may be delayed or inaccurate; indicative prices shown are derived from vendor multiples and are not exchange prints. Past performance is not indicative of future results. ND Capital and its operators accept no liability for any loss arising from the use of this information. Always do your own research and consult a licensed financial advisor before making investment decisions.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var header = document.getElementById('header');
+  function onScroll() { header.classList.toggle('scrolled', window.scrollY > 30); }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  var t = document.getElementById('nav-toggle'), l = document.getElementById('nav-links');
+  if (t) t.addEventListener('click', function () {
+    var open = l.classList.toggle('open');
+    t.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -5% 0px' });
+  document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+
+  /* ---- Newsletter ---- */
+  var f = document.getElementById('sub-form');
+  if (f) f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var msg = document.getElementById('sub-msg'), btn = document.getElementById('sub-btn');
+    if (f.dataset.live !== 'true') {
+      msg.className = 'sub-msg err';
+      msg.textContent = 'The mailing list is not connected yet — please check back shortly.';
+      return;
+    }
+    btn.disabled = true; btn.textContent = 'Sending…';
+    fetch(f.action, { method: 'POST', body: new FormData(f), headers: { 'Accept': 'application/json' } })
+      .then(function (r) {
+        if (r.ok) { f.style.display = 'none'; msg.className = 'sub-msg ok';
+                     msg.textContent = "Thank you — you're on the list."; }
+        else { throw new Error('rejected'); }
+      })
+      .catch(function () {
+        btn.disabled = false; btn.textContent = 'Subscribe';
+        msg.className = 'sub-msg err';
+        msg.textContent = 'Something went wrong. Please try again in a moment.';
+      });
+  });
+
+  /* ---- Sortable tables ---- */
+  document.querySelectorAll('table.sortable').forEach(function (tbl) {
+    tbl.querySelectorAll('th[data-sort]').forEach(function (th, idx) {
+      th.addEventListener('click', function () {
+        var body = tbl.tBodies[0], rows = Array.prototype.slice.call(body.rows);
+        var col = Array.prototype.indexOf.call(th.parentNode.children, th);
+        var desc = !th.classList.contains('desc');
+        tbl.querySelectorAll('th').forEach(function (o) { o.classList.remove('asc','desc'); });
+        th.classList.add(desc ? 'desc' : 'asc');
+        rows.sort(function (a, b) {
+          var x = a.cells[col].dataset.v, y = b.cells[col].dataset.v;
+          var nx = parseFloat(x), ny = parseFloat(y);
+          if (!isNaN(nx) && !isNaN(ny)) return desc ? ny - nx : nx - ny;
+          x = (x || a.cells[col].innerText).toLowerCase();
+          y = (y || b.cells[col].innerText).toLowerCase();
+          return desc ? (y > x ? 1 : -1) : (x > y ? 1 : -1);
+        });
+        rows.forEach(function (r) { body.appendChild(r); });
+      });
+    });
+  });
+
+  /* ---- Coverage filter ---- */
+  var filt = document.getElementById('cov-filter');
+  if (filt) {
+    var chips = document.querySelectorAll('[data-filter]');
+    chips.forEach(function (c) {
+      c.addEventListener('click', function (e) {
+        e.preventDefault();
+        chips.forEach(function (o) { o.classList.remove('chip-ow'); o.classList.add('chip-mute'); });
+        c.classList.remove('chip-mute'); c.classList.add('chip-ow');
+        var want = c.dataset.filter;
+        document.querySelectorAll('[data-rating]').forEach(function (row) {
+          row.style.display = (want === 'all' || row.dataset.rating === want) ? '' : 'none';
+        });
+      });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
