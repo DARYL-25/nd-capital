@@ -3,363 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ND Capital — AI-Powered Equity Research &amp; Proprietary Investing</title>
+<title>ND Capital — AI-Powered Technology Equity Research</title>
+<meta name="description" content="Institutional-format equity research on the technology sector. Full coverage of 24 names with ratings, target prices, scenarios and the evidence that would prove us wrong.">
+<meta property="og:title" content="ND Capital — AI-Powered Technology Equity Research">
+<meta property="og:description" content="Institutional-format equity research on the technology sector. Full coverage of 24 names with ratings, target prices, scenarios and the evidence that would prove us wrong.">
+<meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="assets/nd-capital-monogram.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #132a4e;          /* brand navy — matches baked logo background */
-    --navy-deep: #0a1832;
-    --navy-black: #060f21;
-    --ivory: #fbfaf7;
-    --text: #e8ecf4;
-    --text-dim: #93a2ba;
-    --line: rgba(251, 250, 247, 0.08);
-    --line-strong: rgba(251, 250, 247, 0.16);
-    --gold: #c9a45c;
-    --gold-bright: #e3c584;
-    --green: #4fc98b;
-    --red: #e06a5e;
-    --glass: rgba(251, 250, 247, 0.03);
-    --glass-hover: rgba(251, 250, 247, 0.06);
-    --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
-    --sans: 'Inter', Helvetica, Arial, sans-serif;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: var(--sans); font-weight: 300;
-    color: var(--text); line-height: 1.65;
-    background: var(--navy-deep);
-    overflow-x: hidden;
-  }
-  ::selection { background: var(--gold); color: var(--navy-black); }
-  img { display: block; }
-  a { color: inherit; text-decoration: none; }
-  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
-
-  /* film grain overlay */
-  body::before {
-    content: ""; position: fixed; inset: -50%; z-index: 200; pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-    opacity: 0.05; animation: grain 9s steps(10) infinite;
-  }
-  @keyframes grain {
-    0%,100% { transform: translate(0,0); } 10% { transform: translate(-3%,2%); }
-    30% { transform: translate(2%,-4%); } 50% { transform: translate(-4%,-2%); }
-    70% { transform: translate(3%,3%); } 90% { transform: translate(-2%,4%); }
-  }
-
-  /* ===== Reveal animations ===== */
-  .rv {
-    opacity: 0; transform: translateY(60px) scale(.985); filter: blur(6px);
-    transition: opacity 1.2s cubic-bezier(.16,1,.3,1), transform 1.2s cubic-bezier(.16,1,.3,1), filter 1.2s cubic-bezier(.16,1,.3,1);
-  }
-  .rv.in { opacity: 1; transform: none; filter: blur(0); }
-  .rv-d1 { transition-delay: .1s; } .rv-d2 { transition-delay: .2s; }
-  .rv-d3 { transition-delay: .3s; } .rv-d4 { transition-delay: .42s; }
-
-  /* ===== Header ===== */
-  header {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: transparent; transition: background .4s ease, box-shadow .4s ease, height .4s ease;
-  }
-  header.scrolled {
-    background: rgba(19, 42, 78, 0.88); backdrop-filter: blur(16px);
-    box-shadow: 0 1px 0 var(--line), 0 12px 40px rgba(6, 15, 33, 0.5);
-  }
-  .nav { display: flex; align-items: center; justify-content: space-between; height: 84px; transition: height .4s ease; }
-  header.scrolled .nav { height: 66px; }
-  .nav-logo img { height: 40px; width: auto; transition: height .4s ease; }
-  header.scrolled .nav-logo img { height: 32px; }
-  .nav-links { display: flex; gap: 34px; align-items: center; list-style: none; }
-  .nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); position: relative; transition: color .25s; }
-  .nav-links a:not(.btn):hover { color: var(--ivory); }
-  .nav-links a:not(.btn)::after {
-    content: ""; position: absolute; left: 0; bottom: -6px; height: 1px; width: 0;
-    background: var(--gold); transition: width .3s ease;
-  }
-  .nav-links a:not(.btn):hover::after { width: 100%; }
-
-  .btn {
-    display: inline-block; padding: 13px 30px; border-radius: 2px;
-    font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
-    cursor: pointer; position: relative; overflow: hidden;
-    transition: color .3s ease, border-color .3s ease, transform .3s ease, box-shadow .3s ease;
-  }
-  .btn-gold { background: linear-gradient(120deg, var(--gold) 0%, var(--gold-bright) 50%, var(--gold) 100%); background-size: 200% 100%; color: var(--navy-black); border: none; }
-  .btn-gold:hover { background-position: 100% 0; transform: translateY(-2px); box-shadow: 0 14px 34px rgba(201, 164, 92, 0.28); }
-  .btn-line { background: transparent; color: var(--ivory); border: 1px solid var(--line-strong); }
-  .btn-line:hover { border-color: var(--gold); color: var(--gold-bright); transform: translateY(-2px); }
-
-  /* ===== Hero ===== */
-  .hero {
-    position: relative; min-height: 100vh; display: flex; align-items: center;
-    background:
-      radial-gradient(1100px 600px at 82% 18%, rgba(201, 164, 92, 0.10), transparent 60%),
-      radial-gradient(900px 700px at 12% 85%, rgba(37, 76, 134, 0.45), transparent 65%),
-      linear-gradient(165deg, var(--navy) 0%, var(--navy-deep) 55%, var(--navy-black) 100%);
-    overflow: hidden;
-  }
-  #hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .9; }
-
-  /* aurora light sweeps */
-  .aurora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
-  .aurora i {
-    content: ""; position: absolute; border-radius: 50%;
-    filter: blur(90px); will-change: transform, opacity; font-style: normal;
-  }
-  .aurora i:nth-child(1) {
-    width: 720px; height: 520px; left: 55%; top: -15%;
-    background: radial-gradient(circle, rgba(201,164,92,.22), transparent 65%);
-    animation: drift1 16s ease-in-out infinite alternate;
-  }
-  .aurora i:nth-child(2) {
-    width: 640px; height: 640px; left: -18%; top: 40%;
-    background: radial-gradient(circle, rgba(58,110,190,.28), transparent 65%);
-    animation: drift2 21s ease-in-out infinite alternate;
-  }
-  .aurora i:nth-child(3) {
-    width: 460px; height: 460px; left: 34%; top: 55%;
-    background: radial-gradient(circle, rgba(227,197,132,.12), transparent 65%);
-    animation: drift3 13s ease-in-out infinite alternate;
-  }
-  @keyframes drift1 { from { transform: translate(0,0) scale(1); opacity:.7; } to { transform: translate(-160px,90px) scale(1.25); opacity:1; } }
-  @keyframes drift2 { from { transform: translate(0,0) scale(1); opacity:.8; } to { transform: translate(140px,-110px) scale(1.15); opacity:1; } }
-  @keyframes drift3 { from { transform: translate(0,0) scale(.9); opacity:.5; } to { transform: translate(-90px,-140px) scale(1.3); opacity:.9; } }
-
-  /* cinematic vignette + letterbox sheen */
-  .vignette {
-    position: absolute; inset: 0; pointer-events: none; z-index: 2;
-    background:
-      radial-gradient(120% 90% at 50% 40%, transparent 55%, rgba(4, 10, 22, 0.55) 100%),
-      linear-gradient(180deg, rgba(4,10,22,.5) 0%, transparent 14%, transparent 82%, rgba(4,10,22,.6) 100%);
-  }
-
-  .hero-mark {
-    position: absolute; right: -70px; bottom: -90px; width: 560px; opacity: 0.07;
-    pointer-events: none; will-change: transform;
-  }
-  .hero-inner { position: relative; z-index: 2; padding: 160px 0 140px; max-width: 800px; }
-  .kicker {
-    display: inline-flex; align-items: center; gap: 14px;
-    font-size: 12px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--gold);
-  }
-  .kicker::before { content: ""; width: 44px; height: 1px; background: var(--gold); }
-  .hero h1 {
-    font-family: var(--serif); font-weight: 700;
-    font-size: clamp(42px, 6.4vw, 78px); line-height: 1.06; letter-spacing: -0.01em;
-    margin: 26px 0 28px; color: var(--ivory);
-  }
-  .hero h1 em {
-    font-style: italic;
-    background: linear-gradient(100deg, var(--gold) 20%, #f4e3bb 42%, var(--gold-bright) 55%, var(--gold) 80%);
-    background-size: 220% 100%; -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent; color: var(--gold-bright);
-    animation: shimmer 5.5s ease-in-out infinite;
-  }
-  @keyframes shimmer { 0%,100% { background-position: 0% 0; } 50% { background-position: 100% 0; } }
-  .hero-inner { animation: heroZoom 2.4s cubic-bezier(.16,1,.3,1) both; }
-  @keyframes heroZoom { from { transform: scale(1.045); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-  .hero p.lede { font-size: 19px; font-weight: 300; color: var(--text-dim); max-width: 590px; margin-bottom: 44px; }
-  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-  .scroll-cue {
-    position: absolute; bottom: 92px; left: 50%; transform: translateX(-50%); z-index: 2;
-    width: 1px; height: 56px; overflow: hidden; opacity: .6;
-  }
-  .scroll-cue::after { content: ""; display: block; width: 1px; height: 100%; background: linear-gradient(var(--gold), transparent); animation: cue 2.2s ease-in-out infinite; }
-  @keyframes cue { 0% { transform: translateY(-100%);} 60% { transform: translateY(100%);} 100% { transform: translateY(100%);} }
-
-  /* marquee */
-  .marquee {
-    position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
-    border-top: 1px solid var(--line); background: rgba(6, 15, 33, 0.55); backdrop-filter: blur(8px);
-    overflow: hidden; padding: 16px 0; white-space: nowrap;
-  }
-  .marquee-track { display: inline-block; animation: marquee 36s linear infinite; }
-  .marquee span {
-    font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-dim);
-    margin: 0 34px;
-  }
-  .marquee span i { font-style: normal; color: var(--gold); margin-right: 34px; }
-  @keyframes marquee { from { transform: translateX(0);} to { transform: translateX(-50%);} }
-
-  /* ===== Sections ===== */
-  section { padding: 120px 0; position: relative; }
-  .sec-head { margin-bottom: 56px; max-width: 720px; }
-  .sec-head h2 {
-    font-family: var(--serif); font-weight: 700; font-size: clamp(30px, 3.6vw, 44px);
-    color: var(--ivory); line-height: 1.15; margin-top: 22px;
-  }
-  .sec-head p { color: var(--text-dim); margin-top: 16px; font-size: 16px; }
-  .sec-alt { background: linear-gradient(180deg, rgba(6,15,33,0) 0%, rgba(6,15,33,.55) 12%, rgba(6,15,33,.55) 88%, rgba(6,15,33,0) 100%); }
-
-  /* cards */
-  .card {
-    background: var(--glass); border: 1px solid var(--line); border-radius: 6px;
-    backdrop-filter: blur(6px);
-    transition: transform .5s cubic-bezier(.16,1,.3,1), border-color .4s, background .4s, box-shadow .5s;
-  }
-  .card:hover {
-    transform: translateY(-6px); background: var(--glass-hover);
-    border-color: rgba(201, 164, 92, 0.35);
-    box-shadow: 0 30px 60px rgba(6, 15, 33, 0.55);
-  }
-
-  /* Morning brief */
-  .brief-card { padding: 48px 52px; position: relative; overflow: hidden; }
-  .brief-card::before {
-    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, var(--gold), transparent 60%);
-  }
-  .brief-date { font-size: 12px; color: var(--gold); letter-spacing: 0.24em; text-transform: uppercase; margin-bottom: 18px; }
-  .brief-card h3 { font-family: var(--serif); font-size: 28px; font-weight: 600; color: var(--ivory); margin-bottom: 18px; line-height: 1.3; }
-  .brief-card p { color: var(--text-dim); margin-bottom: 14px; max-width: 820px; }
-  .brief-tags { display: flex; gap: 10px; margin-top: 26px; flex-wrap: wrap; }
-  .tag {
-    font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
-    padding: 6px 16px; border-radius: 20px; border: 1px solid var(--line-strong); color: var(--text-dim);
-    transition: border-color .3s, color .3s;
-  }
-  .tag:hover { border-color: var(--gold); color: var(--gold-bright); }
-
-  /* Bets */
-  .perf-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 30px; }
-  .perf { padding: 30px 30px 26px; }
-  .perf .num { font-family: var(--serif); font-size: 40px; font-weight: 700; color: var(--ivory); line-height: 1; }
-  .perf .num small { font-size: 20px; color: var(--gold); }
-  .perf .lbl { font-size: 11px; color: var(--text-dim); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 12px; }
-  .table-card { overflow: hidden; }
-  .table-card:hover { transform: none; }
-  table { width: 100%; border-collapse: collapse; font-size: 14px; }
-  thead th {
-    text-align: left; padding: 18px 22px; font-weight: 500; font-size: 11px;
-    letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold);
-    border-bottom: 1px solid var(--line-strong); white-space: nowrap;
-  }
-  tbody td { padding: 18px 22px; border-bottom: 1px solid var(--line); color: var(--text-dim); vertical-align: top; }
-  tbody tr { transition: background .3s; }
-  tbody tr:hover { background: var(--glass-hover); }
-  .tick { font-weight: 600; color: var(--ivory); }
-  .dir-long { color: var(--green); font-weight: 500; }
-  .dir-short { color: var(--red); font-weight: 500; }
-
-  /* Earnings calendar */
-  .cal-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
-  .cal-day { padding: 22px 20px; min-height: 170px; }
-  .cal-day .day { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid var(--line); padding-bottom: 12px; margin-bottom: 14px; }
-  .cal-item { font-size: 13px; margin-bottom: 10px; color: var(--text-dim); }
-  .cal-item .t { font-weight: 600; color: var(--ivory); }
-  .risk { font-size: 10px; font-weight: 600; letter-spacing: .08em; padding: 2px 9px; border-radius: 10px; margin-left: 6px; }
-  .risk.high { background: rgba(224,106,94,.14); color: var(--red); }
-  .risk.med { background: rgba(201,164,92,.14); color: var(--gold-bright); }
-  .risk.low { background: rgba(79,201,139,.14); color: var(--green); }
-
-  /* Research */
-  .cov-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
-  .cov-card { padding: 28px; }
-  .cov-card .row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
-  .cov-card .name { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--ivory); }
-  .cov-card .vals { font-size: 13.5px; color: var(--text-dim); }
-
-  /* Insights */
-  .ins-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 20px; }
-  .ins-card { padding: 34px 32px; display: flex; flex-direction: column; min-height: 250px; }
-  .ins-card .cat { font-size: 10.5px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
-  .ins-card h3 { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--ivory); margin-bottom: 12px; line-height: 1.3; }
-  .ins-card p { font-size: 14px; color: var(--text-dim); flex: 1; }
-  .ins-card .read { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-top: 22px; display: inline-flex; align-items: center; gap: 8px; }
-  .ins-card .read::after { content: "→"; transition: transform .3s; }
-  .ins-card:hover .read::after { transform: translateX(6px); }
-
-  /* Subscribe */
-  .subscribe { overflow: hidden; }
-  .sub-card {
-    position: relative; padding: 90px 60px; text-align: center; border-radius: 8px;
-    background:
-      radial-gradient(700px 340px at 50% 0%, rgba(201, 164, 92, 0.12), transparent 70%),
-      linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
-    border: 1px solid var(--line-strong);
-  }
-  .sub-card h2 { font-family: var(--serif); font-size: clamp(28px, 3.4vw, 42px); font-weight: 700; color: var(--ivory); margin: 20px auto 16px; max-width: 620px; line-height: 1.2; }
-  .sub-card > p { color: var(--text-dim); max-width: 520px; margin: 0 auto 38px; }
-  .sub-form { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; }
-  .sub-form input {
-    flex: 1; padding: 15px 20px; border-radius: 2px; border: 1px solid var(--line-strong);
-    background: rgba(6, 15, 33, 0.6); color: var(--ivory); font-size: 14px; font-family: var(--sans);
-    transition: border-color .3s;
-  }
-  .sub-form input:focus { outline: none; border-color: var(--gold); }
-  .sub-form input::placeholder { color: #62738f; }
-  .sub-note { font-size: 12px; color: #62738f; margin-top: 16px; }
-  .sub-msg { margin-top: 18px; font-size: 15px; color: var(--green); display: none; }
-
-  /* Footer */
-  footer { background: var(--navy); border-top: 1px solid var(--line); padding: 72px 0 40px; }
-  .foot-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 48px; flex-wrap: wrap; margin-bottom: 48px; }
-  .foot-top img { height: 36px; width: auto; }
-  .foot-links { display: flex; gap: 64px; }
-  .foot-links .col h4 { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; font-weight: 500; }
-  .foot-links .col a { display: block; font-size: 13.5px; margin-bottom: 10px; color: var(--text-dim); transition: color .25s; }
-  .foot-links .col a:hover { color: var(--ivory); }
-  .disclaimer { font-size: 11.5px; line-height: 1.8; color: #6d7d99; border-top: 1px solid var(--line); padding-top: 28px; }
-
-  @media (max-width: 900px) {
-    .nav-links { display: none; }
-    .perf-strip { grid-template-columns: repeat(2, 1fr); }
-    .cal-grid { grid-template-columns: 1fr 1fr; }
-    .table-card { overflow-x: auto; }
-    .sub-card { padding: 60px 28px; }
-    .sub-form { flex-direction: column; }
-    .hero-inner { padding-top: 140px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .rv { opacity: 1; transform: none; filter: none; transition: none; }
-    .marquee-track, body::before, .scroll-cue::after,
-    .aurora i, .hero h1 em, .hero-inner { animation: none; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 
 <header id="header">
   <div class="wrap nav">
-    <a class="nav-logo" href="#top" aria-label="ND Capital home">
+    <a class="nav-logo" href="index.html" aria-label="ND Capital home">
       <img src="assets/nd-capital-reversed-horizontal-lockup.svg" alt="ND Capital"
            onerror="this.onerror=null;this.src='assets/nd-capital-reversed-horizontal-lockup.png';">
     </a>
-    <ul class="nav-links">
-      <li><a href="#brief">Morning Brief</a></li>
-      <li><a href="#bets">Bets Tracker</a></li>
-      <li><a href="#earnings">Earnings</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#insights">Insights</a></li>
-      <li><a href="#subscribe" class="btn btn-gold">Subscribe</a></li>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="coverage/">Coverage</a></li><li><a href="themes/">Themes</a></li><li><a href="briefs/">Briefs</a></li><li><a href="insights/">Insights</a></li><li><a href="track-record.html">Track Record</a></li><li><a href="methodology.html">Methodology</a></li>
+      <li><a href="index.html#subscribe" class="btn btn-gold btn-sm">Subscribe</a></li>
     </ul>
   </div>
 </header>
 
-<section class="hero" id="top">
-  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
-  <canvas id="hero-canvas"></canvas>
-  <div class="vignette" aria-hidden="true"></div>
-  <img class="hero-mark" id="hero-mark" src="assets/nd-capital-reversed-monogram.svg" alt="" aria-hidden="true"
-       onerror="this.onerror=null;this.src='assets/nd-capital-reversed-monogram.png';">
-  <div class="wrap hero-inner">
-    <div class="kicker rv in">AI-Powered Asset Management</div>
-    <h1 class="rv in rv-d1">Institutional-grade research,<br>run by an <em>autonomous analyst</em>.</h1>
-    <p class="lede rv in rv-d2">ND Capital covers the technology sector with continuously updated DCF models, earnings-risk analytics, alternative data — and a fully transparent record of every bet the model makes.</p>
-    <div class="hero-actions rv in rv-d3">
-      <a href="#subscribe" class="btn btn-gold">Get the Daily Brief</a>
-      <a href="#bets" class="btn btn-line">View Track Record</a>
+<section class="hero" id="top" style="position:relative;min-height:92vh;display:flex;align-items:center;
+  background:radial-gradient(1000px 560px at 80% 16%,rgba(201,164,92,.10),transparent 60%),
+             radial-gradient(860px 640px at 10% 84%,rgba(37,76,134,.42),transparent 65%),
+             linear-gradient(165deg,var(--navy) 0%,var(--navy-deep) 55%,var(--navy-black) 100%);overflow:hidden;">
+  <canvas id="hero-canvas" style="position:absolute;inset:0;width:100%;height:100%;opacity:.85;"></canvas>
+  <div style="position:absolute;inset:0;pointer-events:none;z-index:2;
+    background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(4,10,22,.55) 100%),
+               linear-gradient(180deg,rgba(4,10,22,.5) 0%,transparent 14%,transparent 82%,rgba(4,10,22,.6) 100%);"></div>
+  <div class="wrap" style="position:relative;z-index:3;padding:150px 28px 130px;max-width:1180px;">
+    <div style="max-width:840px;">
+      <div class="kicker rv in">Coverage initiated · 2 August 2026</div>
+      <h1 style="font-family:var(--serif);font-weight:700;font-size:clamp(38px,6vw,72px);line-height:1.06;
+        margin:24px 0 24px;color:var(--ivory);letter-spacing:-.015em;" class="rv in rv-d1">
+        The AI trade stopped being<br>about <em style="font-style:italic;color:var(--gold-bright);">demand</em>.</h1>
+      <p class="rv in rv-d2" style="font-size:19px;color:var(--text-dim);max-width:640px;margin-bottom:38px;">
+        Semiconductors are in a bear market while memory contract prices keep rising. That is not a demand
+        signal — it is the market repricing who pays for the build-out. 24 names, full research,
+        every rating with the evidence that would prove it wrong.</p>
+      <div class="rv in rv-d3" style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="coverage/" class="btn btn-gold">View the coverage book</a>
+        <a href="insights/whats-already-in-the-price.html" class="btn btn-line">Read today's brief</a>
+      </div>
     </div>
   </div>
-  <div class="scroll-cue" aria-hidden="true"></div>
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track" id="marquee-track">
-      <span><i>◆</i>Equity Research</span><span><i>◆</i>Daily Morning Brief</span><span><i>◆</i>DCF Coverage — Tech</span><span><i>◆</i>Earnings Risk Gauge</span><span><i>◆</i>Alternative Data</span><span><i>◆</i>Transparent Bets Tracker</span><span><i>◆</i>Macro Intelligence</span>
+  <div style="position:absolute;bottom:0;left:0;right:0;z-index:4;border-top:1px solid var(--line);
+    background:rgba(6,15,33,.6);backdrop-filter:blur(8px);overflow:hidden;padding:14px 0;white-space:nowrap;">
+    <div id="marquee-track" style="display:inline-block;animation:marquee 48s linear infinite;
+      font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--text-dim);"><span><i>◆</i>MU Overweight $1,150</span><span><i>◆</i>AVGO Overweight $480</span><span><i>◆</i>CRM Overweight $225</span><span><i>◆</i>NVDA Overweight $245</span><span><i>◆</i>GOOGL Overweight $425</span><span><i>◆</i>ASML Overweight $1,875</span><span><i>◆</i>LRCX Overweight $335</span><span><i>◆</i>TSM Overweight $460</span><span><i>◆</i>KLAC Overweight $205</span><span><i>◆</i>VRT Overweight $270</span><span><i>◆</i>SK-Hynix-000660 Overweight </span><span><i>◆</i>SMCI Neutral $32</span><span><i>◆</i>ORCL Neutral $140</span><span><i>◆</i>META Neutral $595</span></div>
+  </div>
+</section>
+<style>
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  #marquee-track span { margin: 0 30px; }
+  #marquee-track i { font-style: normal; color: var(--gold); margin-right: 30px; }
+</style>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="stats">
+      <div class="card stat rv"><div class="v">24</div><div class="k">Names covered</div></div>
+      <div class="card stat rv rv-d1"><div class="v" style="color:var(--green);">11</div><div class="k">Overweight</div></div>
+      <div class="card stat rv rv-d2"><div class="v" style="color:var(--gold-bright);">8</div><div class="k">Neutral</div></div>
+      <div class="card stat rv rv-d3"><div class="v" style="color:var(--red);">5</div><div class="k">Underweight</div></div>
+      <div class="card stat rv rv-d4"><div class="v">12</div><div class="k">Themes tracked</div></div>
     </div>
   </div>
 </section>
@@ -369,125 +83,260 @@
     <div class="sec-head rv">
       <div class="kicker">Every morning, before the open</div>
       <h2>The Morning Brief</h2>
-      <p>What moved markets yesterday, what matters today — macro, tech sector, and the names we cover.</p>
+      <p>What moved overnight, what matters today, and how it changes the book.</p>
     </div>
-    <div class="card brief-card rv rv-d1">
-      <div class="brief-date">Friday, July 17, 2026 · Pre-Market</div>
-      <h3>Semis lead a cautious tape as AI capex questions resurface</h3>
-      <p>Yesterday's session closed mixed with megacap tech outperforming while cyclicals lagged. Semiconductor names extended gains on stronger data-center order flow, though the debate over AI capital-expenditure returns is intensifying ahead of hyperscaler earnings.</p>
-      <p>Today: watch the June housing print at 8:30 ET, two Fed speakers, and after-hours earnings from our coverage — where positioning, not headline numbers, will likely drive the reaction.</p>
-      <div class="brief-tags">
-        <span class="tag">Macro</span><span class="tag">Semiconductors</span><span class="tag">AI Capex</span><span class="tag">Earnings Preview</span>
+    <div class="rv rv-d1">
+    <a class="card hoverable" href="insights/whats-already-in-the-price.html" style="display:block;padding:40px 44px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent 60%);"></div>
+      <div style="font-size:11.5px;color:var(--gold);letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px;">
+        3 Aug 2026 · Education</div>
+      <h3 style="font-family:var(--serif);font-size:27px;font-weight:600;color:var(--ivory);margin-bottom:14px;line-height:1.28;">What's Already In the Price</h3>
+      <p style="color:var(--text-dim);max-width:800px;">Why a company can beat consensus and fall 10% on the same afternoon</p>
+      <div class="pill-row" style="margin-top:22px;"><span class="tag">Earnings</span><span class="tag">Expectations</span><span class="tag">Education</span><span class="tag">Methodology</span></div>
+    </a></div>
+    <div style="margin-top:26px;"><a href="briefs/" class="btn btn-line btn-sm">All briefs</a></div>
+  </div>
+</section>
+
+<section class="sec-alt" id="conviction">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="kicker">Where we see the most upside</div>
+      <h2>Highest-conviction ideas</h2>
+      <p>Ranked by implied upside to our target. Every one of these has a published bear case and a
+         written-down list of what would prove us wrong.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="rv rv-d1"><a class="card cov-card hoverable" href="coverage/MU.html" data-rating="Overweight">
+  <div class="top"><span class="tk">MU</span><span class="chip chip-ow">Overweight</span></div>
+  <div class="co">Micron Technology Inc</div>
+  <div class="line">Contract prices are still rising double digits a quarter and the stock trades at 5.3x forward earnings. One of those two facts is wrong.</div>
+  <div class="foot">
+    <span>Target <b>$1,150</b></span>
+    <span>Upside <b><span class="up">+39.7%</span></b></span>
+    <span>Fwd P/E <b>5.3x</b></span>
+  </div>
+</a></div><div class="rv rv-d2"><a class="card cov-card hoverable" href="coverage/AVGO.html" data-rating="Overweight">
+  <div class="top"><span class="tk">AVGO</span><span class="chip chip-ow">Overweight</span></div>
+  <div class="co">Broadcom Inc</div>
+  <div class="line">The structural share-taker from merchant GPU, at 21x forward earnings and a 0.44 PEG.</div>
+  <div class="foot">
+    <span>Target <b>$480</b></span>
+    <span>Upside <b><span class="up">+23.3%</span></b></span>
+    <span>Fwd P/E <b>20.8x</b></span>
+  </div>
+</a></div><div class="rv rv-d3"><a class="card cov-card hoverable" href="coverage/CRM.html" data-rating="Overweight">
+  <div class="top"><span class="tk">CRM</span><span class="chip chip-ow">Overweight</span></div>
+  <div class="co">Salesforce Inc</div>
+  <div class="line">13.5x forward for a franchise with 78% gross margins, sold off on a disruption thesis that has not yet appeared in the numbers.</div>
+  <div class="foot">
+    <span>Target <b>$225</b></span>
+    <span>Upside <b><span class="up">+22.3%</span></b></span>
+    <span>Fwd P/E <b>13.5x</b></span>
+  </div>
+</a></div><div class="rv rv-d4"><a class="card cov-card hoverable" href="coverage/NVDA.html" data-rating="Overweight">
+  <div class="top"><span class="tk">NVDA</span><span class="chip chip-ow">Overweight</span></div>
+  <div class="co">NVIDIA Corporation</div>
+  <div class="line">The cheapest way to own AI compute after the de-rating, and the only participant that funds its own growth entirely from cash.</div>
+  <div class="foot">
+    <span>Target <b>$245</b></span>
+    <span>Upside <b><span class="up">+22.0%</span></b></span>
+    <span>Fwd P/E <b>22.9x</b></span>
+  </div>
+</a></div><div class="rv rv-d4"><a class="card cov-card hoverable" href="coverage/GOOGL.html" data-rating="Overweight">
+  <div class="top"><span class="tk">GOOGL</span><span class="chip chip-ow">Overweight</span></div>
+  <div class="co">Alphabet Inc Class A</div>
+  <div class="line">The only megacap that owns its own AI silicon, its own models and its own distribution — priced at 17x forward earnings.</div>
+  <div class="foot">
+    <span>Target <b>$425</b></span>
+    <span>Upside <b><span class="up">+19.3%</span></b></span>
+    <span>Fwd P/E <b>17.4x</b></span>
+  </div>
+</a></div><div class="rv rv-d4"><a class="card cov-card hoverable" href="coverage/ASML.html" data-rating="Overweight">
+  <div class="top"><span class="tk">ASML</span><span class="chip chip-ow">Overweight</span></div>
+  <div class="co">ASML Holding NV ADR</div>
+  <div class="line">A genuine monopoly on EUV lithography. Nothing at the leading edge gets built without it.</div>
+  <div class="foot">
+    <span>Target <b>$1,875</b></span>
+    <span>Upside <b><span class="up">+15.1%</span></b></span>
+    <span>Fwd P/E <b>36.4x</b></span>
+  </div>
+</a></div>
+    </div>
+    <div style="margin-top:30px;"><a href="coverage/" class="btn btn-line btn-sm">Full coverage universe</a></div>
+  </div>
+</section>
+
+<section id="themes-preview">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="kicker">The industry map</div>
+      <h2>Themes we track</h2>
+      <p>Where each theme sits in its lifecycle, who captures the profit pool, and the bear case for
+         the theme itself — argued at full strength.</p>
+    </div>
+    <div class="grid grid-2">
+      <a class="card ins-card hoverable rv rv-d1" href="themes/AI-Compute-GPU.html">
+        <div class="cat">Consensus — actively de-rating</div>
+        <h3>AI Compute & GPU</h3>
+        <p>Merchant accelerators: the chips that train and serve the models, and the cycle everything else in technology is currently priced against.</p>
+        <span class="read">Read the theme</span></a><a class="card ins-card hoverable rv rv-d2" href="themes/Memory-HBM-DRAM.html">
+        <div class="cat">Accelerating fundamentally — de-rating in price</div>
+        <h3>Memory, HBM & DRAM</h3>
+        <p>The largest divergence in the market: contract prices rising double digits a quarter while the equities fall.</p>
+        <span class="read">Read the theme</span></a><a class="card ins-card hoverable rv rv-d3" href="themes/Advanced-Packaging.html">
+        <div class="cat">Accelerating</div>
+        <h3>Advanced Packaging</h3>
+        <p>Chips stopped getting faster by shrinking alone. Now they get faster by being stacked — and stacking capacity is the industry's real gate.</p>
+        <span class="read">Read the theme</span></a><a class="card ins-card hoverable rv rv-d4" href="themes/Semicap-Equipment.html">
+        <div class="cat">Accelerating</div>
+        <h3>Semiconductor Capital Equipment</h3>
+        <p>The tools that build the fabs. Two capex cycles — logic and memory — are now overlapping in the same order books.</p>
+        <span class="read">Read the theme</span></a><a class="card ins-card hoverable rv rv-d1" href="themes/Datacenter-Power-Cooling.html">
+        <div class="cat">Accelerating</div>
+        <h3>Datacenter Power & Cooling</h3>
+        <p>The unglamorous physical constraint. A rack you cannot cool is a rack you cannot deploy, whatever the chip supply looks like.</p>
+        <span class="read">Read the theme</span></a><a class="card ins-card hoverable rv rv-d2" href="themes/Custom-Silicon-ASIC.html">
+        <div class="cat">Accelerating</div>
+        <h3>Custom Silicon & ASIC</h3>
+        <p>The largest buyers of accelerators are trying to stop paying merchant margins. That shift has a supplier, and the supplier is listed.</p>
+        <span class="read">Read the theme</span></a>
+    </div>
+    <div style="margin-top:30px;"><a href="themes/" class="btn btn-line btn-sm">All 12 themes</a></div>
+  </div>
+</section>
+
+<section class="sec-alt" id="earnings">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="kicker">What is coming</div>
+      <h2>Next results</h2>
+      <p>Coverage names with a confirmed reporting date, and our earnings-risk read — how much the
+         stock typically moves on results relative to what is already priced in.</p>
+    </div>
+    <div class="card table-card rv rv-d1">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Date</th><th>Name</th><th>Our rating</th>
+            <th>Earnings risk</th><th class="num">Consensus EPS</th><th>Timing</th></tr></thead>
+          <tbody><tr>
+            <td>4 Aug 2026</td>
+            <td><a class="tick" href="coverage/AMD.html">AMD</a>
+                <div class="dim small" style="margin-top:3px;">Advanced Micro Devices Inc</div></td>
+            <td><span class="chip chip-uw">Underweight</span></td>
+            <td><span class="risk risk-high">Very high</span></td>
+            <td class="num">$1.35</td>
+            <td class="dim">post-market</td>
+          </tr><tr>
+            <td>26 Aug 2026</td>
+            <td><a class="tick" href="coverage/NVDA.html">NVDA</a>
+                <div class="dim small" style="margin-top:3px;">NVIDIA Corporation</div></td>
+            <td><span class="chip chip-ow">Overweight</span></td>
+            <td><span class="risk risk-high">High</span></td>
+            <td class="num">$2.01</td>
+            <td class="dim">post-market</td>
+          </tr><tr>
+            <td>3 Sep 2026</td>
+            <td><a class="tick" href="coverage/AVGO.html">AVGO</a>
+                <div class="dim small" style="margin-top:3px;">Broadcom Inc</div></td>
+            <td><span class="chip chip-ow">Overweight</span></td>
+            <td><span class="risk risk-med">Medium</span></td>
+            <td class="num">$2.83</td>
+            <td class="dim">—</td>
+          </tr><tr>
+            <td>28 Oct 2026</td>
+            <td><a class="tick" href="coverage/GOOGL.html">GOOGL</a>
+                <div class="dim small" style="margin-top:3px;">Alphabet Inc Class A</div></td>
+            <td><span class="chip chip-ow">Overweight</span></td>
+            <td><span class="risk risk-med">Medium</span></td>
+            <td class="num">$3.02</td>
+            <td class="dim">—</td>
+          </tr></tbody>
+        </table>
       </div>
     </div>
+    <p class="dim small" style="margin-top:14px;">
+      Earnings risk is our own judgement from the company deep dive, not vendor data. Reporting dates
+      from Alpha Vantage EARNINGS_CALENDAR, queried 2026-08-03; 18 further coverage names have no confirmed date yet
+      because our market-data plan is capped at 25 requests a day — we publish the gap rather than an
+      estimated date presented as a confirmed one.</p>
   </div>
 </section>
 
-<section id="bets" class="sec-alt">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div class="kicker">Full transparency</div>
-      <h2>Bets Tracker</h2>
-      <p>Every position the model takes is published here — entry, thesis, and live performance. Wins and losses alike. The model reviews its own record daily and learns from it.</p>
-    </div>
-    <div class="perf-strip">
-      <div class="card perf rv"><div class="num">—</div><div class="lbl">Open Bets</div></div>
-      <div class="card perf rv rv-d1"><div class="num">—</div><div class="lbl">Hit Rate</div></div>
-      <div class="card perf rv rv-d2"><div class="num">—</div><div class="lbl">Avg. Return / Bet</div></div>
-      <div class="card perf rv rv-d3"><div class="num">—</div><div class="lbl">Since Inception</div></div>
-    </div>
-    <div class="card table-card rv rv-d2">
-      <table>
-        <thead>
-          <tr><th>Date</th><th>Ticker</th><th>Direction</th><th>Entry</th><th>Current</th><th>P&amp;L</th><th>Thesis</th><th>Status</th></tr>
-        </thead>
-        <tbody id="bets-body">
-          <tr>
-            <td colspan="8" style="text-align:center; padding: 44px;">
-              Bets will appear here automatically as the model publishes them.
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<section id="earnings">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div class="kicker">This week</div>
-      <h2>Earnings Calendar</h2>
-      <p>Coverage names reporting this week, with our earnings-risk gauge: how much the stock typically moves on results, and what investors are positioned for.</p>
-    </div>
-    <div class="cal-grid" id="cal-grid">
-      <div class="card cal-day rv"><div class="day">Monday</div><div class="cal-item">No coverage reporting</div></div>
-      <div class="card cal-day rv rv-d1"><div class="day">Tuesday</div><div class="cal-item">No coverage reporting</div></div>
-      <div class="card cal-day rv rv-d2"><div class="day">Wednesday</div><div class="cal-item">No coverage reporting</div></div>
-      <div class="card cal-day rv rv-d3"><div class="day">Thursday</div><div class="cal-item">No coverage reporting</div></div>
-      <div class="card cal-day rv rv-d4"><div class="day">Friday</div><div class="cal-item">No coverage reporting</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="research" class="sec-alt">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div class="kicker">Coverage universe</div>
-      <h2>Equity Research</h2>
-      <p>Live DCF-based fair values across our technology coverage, updated as new information is released. Ratings reflect valuation, management guidance behavior, and sector positioning.</p>
-    </div>
-    <div class="cov-grid" id="cov-grid">
-      <div class="card cov-card rv">
-        <div class="row"><span class="name">Coverage initiating</span></div>
-        <div class="vals">Company cards with fair value, price, and upside will populate here as the research engine publishes models.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="insights">
+<section id="insights-preview">
   <div class="wrap">
     <div class="sec-head rv">
       <div class="kicker">Learn with us</div>
       <h2>Insights &amp; Deep Dives</h2>
-      <p>Long-form sector primers and educational research — the reasoning behind every call, explained in full.</p>
+      <p>Long-form explainers written to teach the method, not to sell a view.</p>
     </div>
-    <div class="ins-grid">
-      <div class="card ins-card rv">
-        <div class="cat">Sector Primer</div>
-        <h3>The Economics of AI Capex: Is $1 In Still $1 Out?</h3>
-        <p>Hyperscaler spending is compounding — but is the revenue following? A framework for tracking the return on AI infrastructure.</p>
-        <a class="read" href="#">Coming soon</a>
-      </div>
-      <div class="card ins-card rv rv-d1">
-        <div class="cat">Methodology</div>
-        <h3>How We Read Management Guidance</h3>
-        <p>Some teams sandbag, some overpromise. Why guidance behavior belongs inside a DCF, and how we quantify it.</p>
-        <a class="read" href="#">Coming soon</a>
-      </div>
-      <div class="card ins-card rv rv-d2">
-        <div class="cat">Education</div>
-        <h3>Earnings Season Risk: What Investors Are Really Pricing In</h3>
-        <p>Expectations often matter more than results. How to spot when a "beat" is already in the price.</p>
-        <a class="read" href="#">Coming soon</a>
-      </div>
+    <div class="grid grid-3">
+      <a class="card ins-card hoverable rv rv-d1" href="insights/whats-already-in-the-price.html">
+        <div class="cat">Education</div><h3>What's Already In the Price</h3><p>A beat is only a beat relative to what was required. This is how to work out what a stock actually needs to do before the numbers land — and why the published consensus is the wrong bar.</p>
+        <span class="read">Read · 8 min</span></a><a class="card ins-card hoverable rv rv-d2" href="insights/scoring-your-own-calls.html">
+        <div class="cat">Methodology</div><h3>How to Score Your Own Calls</h3><p>An analyst who is right 80% of the time may be worse than one who is right 55% of the time. This is the scoring system we hold ourselves to, and why it separates the outcome from the reasoning.</p>
+        <span class="read">Read · 7 min</span></a><a class="card ins-card hoverable rv rv-d3" href="insights/the-depreciation-wall.html">
+        <div class="cat">Sector Primer</div><h3>The Depreciation Wall</h3><p>The four largest US hyperscalers bought $433.9bn of equipment in four quarters and recognised $149bn of depreciation. The gap is the story of this market.</p>
+        <span class="read">Read · 9 min</span></a>
     </div>
   </div>
 </section>
 
-<section class="subscribe" id="subscribe">
+<script>
+(function () {
+  var c = document.getElementById('hero-canvas'); if (!c) return;
+  var ctx = c.getContext('2d'), W, H;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function resize() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = c.clientWidth; H = c.clientHeight; c.width = W*dpr; c.height = H*dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  window.addEventListener('resize', resize); resize();
+  var lines = [
+    {amp:50,freq:0.0042,speed:0.00024,y:0.62,a:0.5,w:1.7,g:16,col:'201,164,92'},
+    {amp:70,freq:0.0030,speed:0.00016,y:0.71,a:0.2,w:1.2,g:9,col:'251,250,247'},
+    {amp:36,freq:0.0056,speed:0.00032,y:0.54,a:0.26,w:1.1,g:11,col:'227,197,132'},
+    {amp:88,freq:0.0022,speed:0.00010,y:0.80,a:0.11,w:1.0,g:0,col:'90,130,190'}
+  ];
+  function ny(x,s,t,l) {
+    return Math.sin(x*l.freq+t+s)*l.amp + Math.sin(x*l.freq*2.7+t*1.6+s*2)*l.amp*0.35
+         + Math.sin(x*l.freq*0.4+t*0.7+s*3)*l.amp*0.6;
+  }
+  function draw(now) {
+    ctx.clearRect(0,0,W,H);
+    lines.forEach(function (l,i) {
+      var t = now*l.speed; ctx.beginPath();
+      for (var x=0;x<=W;x+=6) { var y=H*l.y+ny(x,i*7+1,t,l); x===0?ctx.moveTo(x,y):ctx.lineTo(x,y); }
+      ctx.strokeStyle='rgba('+l.col+','+l.a+')'; ctx.lineWidth=l.w;
+      ctx.shadowBlur=l.g; ctx.shadowColor='rgba('+l.col+',0.8)'; ctx.stroke(); ctx.shadowBlur=0;
+      if (i===0) {
+        ctx.lineTo(W,H); ctx.lineTo(0,H); ctx.closePath();
+        var g=ctx.createLinearGradient(0,H*0.45,0,H);
+        g.addColorStop(0,'rgba(201,164,92,0.11)'); g.addColorStop(1,'rgba(201,164,92,0)');
+        ctx.fillStyle=g; ctx.fill();
+      }
+    });
+    if (!reduced) requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+  var tr = document.getElementById('marquee-track'); if (tr) tr.innerHTML += tr.innerHTML;
+})();
+</script>
+
+<section class="subscribe tight" id="subscribe">
   <div class="wrap">
     <div class="sub-card rv">
       <div class="kicker" style="justify-content:center;">The Daily Brief</div>
       <h2>Market intelligence in your inbox, every morning before the open.</h2>
-      <p>Markets recap, earnings risk, and the model's latest calls. Free while in beta.</p>
-      <form class="sub-form" id="sub-form">
-        <input type="email" id="sub-email" placeholder="you@email.com" required aria-label="Email address">
-        <button class="btn btn-gold" type="submit">Subscribe</button>
+      <p>The morning brief, rating changes, and every note we publish. Free while in beta. No spam, unsubscribe anytime.</p>
+      <form class="sub-form" id="sub-form" data-live="false" action="" method="POST">
+        <input type="email" name="email" id="sub-email" placeholder="you@email.com" required aria-label="Email address">
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-gold" type="submit" id="sub-btn">Subscribe</button>
       </form>
-      <div class="sub-msg" id="sub-msg">Thanks — you're on the list.</div>
-      <div class="sub-note">No spam. Unsubscribe anytime.</div>
+      <div class="sub-msg" id="sub-msg" role="status" aria-live="polite"></div>
+      <div class="sub-note">Research and education only — not investment advice.</div>
     </div>
   </div>
 </section>
@@ -498,141 +347,109 @@
       <img src="assets/nd-capital-reversed-horizontal-lockup.png" alt="ND Capital">
       <div class="foot-links">
         <div class="col">
-          <h4>Platform</h4>
-          <a href="#brief">Morning Brief</a>
-          <a href="#bets">Bets Tracker</a>
-          <a href="#earnings">Earnings Calendar</a>
+          <h4>Research</h4>
+          <a href="coverage/">Coverage universe</a>
+          <a href="themes/">Themes</a>
+          <a href="insights/">Insights</a>
         </div>
         <div class="col">
-          <h4>Research</h4>
-          <a href="#research">Coverage</a>
-          <a href="#insights">Insights</a>
+          <h4>Daily</h4>
+          <a href="briefs/">Morning briefs</a>
+          <a href="index.html#subscribe">Subscribe</a>
+        </div>
+        <div class="col">
+          <h4>About</h4>
+          <a href="methodology.html">Methodology</a>
+          <a href="track-record.html">Track record</a>
         </div>
       </div>
     </div>
     <div class="disclaimer">
-      © 2026 ND Capital. All rights reserved.<br><br>
-      Disclaimer: The content published on this website is for informational and educational purposes only and does not constitute investment advice, a recommendation, or an offer or solicitation to buy or sell any security. Positions and analyses shown here reflect the output of an experimental, AI-assisted research process and may be incorrect or outdated. Past performance is not indicative of future results. ND Capital and its operators accept no liability for any loss arising from the use of this information. Always do your own research and consult a licensed financial advisor before making investment decisions.
+      © 2026 ND Capital. All rights reserved. Site built 2026-08-03 20:08.<br><br>
+      <strong>Disclaimer:</strong> The content published on this website is for informational and educational purposes only and does not constitute investment advice, a recommendation, or an offer or solicitation to buy or sell any security. Ratings, target prices and analyses shown here reflect the output of an experimental, AI-assisted research process and may be incorrect or outdated. Market data is provided by third parties and may be delayed or inaccurate; indicative prices shown are derived from vendor multiples and are not exchange prints. Past performance is not indicative of future results. ND Capital and its operators accept no liability for any loss arising from the use of this information. Always do your own research and consult a licensed financial advisor before making investment decisions.
     </div>
   </div>
 </footer>
 
 <script>
 (function () {
-  /* ---- Header state ---- */
   var header = document.getElementById('header');
-  function onScrollHeader() {
-    header.classList.toggle('scrolled', window.scrollY > 40);
-  }
-  window.addEventListener('scroll', onScrollHeader, { passive: true });
-  onScrollHeader();
+  function onScroll() { header.classList.toggle('scrolled', window.scrollY > 30); }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
-  /* ---- Scroll reveal ---- */
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  var t = document.getElementById('nav-toggle'), l = document.getElementById('nav-links');
+  if (t) t.addEventListener('click', function () {
+    var open = l.classList.toggle('open');
+    t.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -5% 0px' });
   document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
 
-  /* ---- Duplicate marquee content for seamless loop ---- */
-  var track = document.getElementById('marquee-track');
-  track.innerHTML += track.innerHTML;
-
-  /* ---- Hero parallax (mark, canvas, content at different depths) ---- */
-  var mark = document.getElementById('hero-mark');
-  var heroInner = document.querySelector('.hero-inner');
-  window.addEventListener('scroll', function () {
-    var y = window.scrollY;
-    if (y < window.innerHeight) {
-      mark.style.transform = 'translateY(' + (y * -0.28) + 'px)';
-      canvas.style.transform = 'translateY(' + (y * 0.18) + 'px)';
-      heroInner.style.transform = 'translateY(' + (y * 0.32) + 'px)';
-      heroInner.style.opacity = Math.max(0, 1 - y / (window.innerHeight * 0.75));
-    }
-  }, { passive: true });
-
-  /* ---- Hero canvas: slow cinematic market lines ---- */
-  var canvas = document.getElementById('hero-canvas');
-  var ctx = canvas.getContext('2d');
-  var W, H, t = 0;
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function resize() {
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    W = canvas.clientWidth; H = canvas.clientHeight;
-    canvas.width = W * dpr; canvas.height = H * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-  window.addEventListener('resize', resize);
-  resize();
-
-  var lines = [
-    { amp: 52, freq: 0.0042, speed: 0.00026, yOff: 0.62, alpha: 0.55, width: 1.8, glow: 18, color: '201,164,92' },
-    { amp: 72, freq: 0.0030, speed: 0.00017, yOff: 0.71, alpha: 0.22, width: 1.3, glow: 10, color: '251,250,247' },
-    { amp: 38, freq: 0.0056, speed: 0.00034, yOff: 0.54, alpha: 0.30, width: 1.2, glow: 12, color: '227,197,132' },
-    { amp: 90, freq: 0.0022, speed: 0.00011, yOff: 0.80, alpha: 0.12, width: 1.0, glow: 0,  color: '90,130,190' }
-  ];
-  /* pulses travelling along the gold line */
-  var pulses = [];
-  for (var pi = 0; pi < 5; pi++) pulses.push({ x: Math.random(), v: 0.00003 + Math.random() * 0.00005 });
-
-  function noiseY(x, seed, time, l) {
-    return Math.sin(x * l.freq + time + seed) * l.amp
-         + Math.sin(x * l.freq * 2.7 + time * 1.6 + seed * 2) * l.amp * 0.35
-         + Math.sin(x * l.freq * 0.4 + time * 0.7 + seed * 3) * l.amp * 0.6;
-  }
-
-  function draw(now) {
-    ctx.clearRect(0, 0, W, H);
-    lines.forEach(function (l, i) {
-      var time = now * l.speed;
-      ctx.beginPath();
-      for (var x = 0; x <= W; x += 6) {
-        var y = H * l.yOff + noiseY(x, i * 7 + 1, time, l);
-        x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-      }
-      ctx.strokeStyle = 'rgba(' + l.color + ',' + l.alpha + ')';
-      ctx.lineWidth = l.width;
-      ctx.shadowBlur = l.glow;
-      ctx.shadowColor = 'rgba(' + l.color + ',0.8)';
-      ctx.stroke();
-      ctx.shadowBlur = 0;
-      // luminous area fill under the gold line
-      if (i === 0) {
-        ctx.lineTo(W, H); ctx.lineTo(0, H); ctx.closePath();
-        var g = ctx.createLinearGradient(0, H * 0.45, 0, H);
-        g.addColorStop(0, 'rgba(201,164,92,0.12)');
-        g.addColorStop(1, 'rgba(201,164,92,0)');
-        ctx.fillStyle = g;
-        ctx.fill();
-      }
-    });
-    // glowing pulses riding the gold line
-    var l0 = lines[0], t0 = now * l0.speed;
-    pulses.forEach(function (p) {
-      p.x += p.v * 16; if (p.x > 1.04) p.x = -0.04;
-      var px = p.x * W;
-      var py = H * l0.yOff + noiseY(px, 1, t0, l0);
-      var rg = ctx.createRadialGradient(px, py, 0, px, py, 14);
-      rg.addColorStop(0, 'rgba(244,227,187,0.9)');
-      rg.addColorStop(0.3, 'rgba(201,164,92,0.45)');
-      rg.addColorStop(1, 'rgba(201,164,92,0)');
-      ctx.fillStyle = rg;
-      ctx.beginPath(); ctx.arc(px, py, 14, 0, Math.PI * 2); ctx.fill();
-    });
-    if (!reduced) requestAnimationFrame(draw);
-  }
-  requestAnimationFrame(draw);
-
-  /* ---- Newsletter (front-end only for now) ---- */
-  document.getElementById('sub-form').addEventListener('submit', function (e) {
+  /* ---- Newsletter ---- */
+  var f = document.getElementById('sub-form');
+  if (f) f.addEventListener('submit', function (e) {
     e.preventDefault();
-    var email = document.getElementById('sub-email').value.trim();
-    if (!email) return;
-    document.getElementById('sub-msg').style.display = 'block';
-    this.style.display = 'none';
+    var msg = document.getElementById('sub-msg'), btn = document.getElementById('sub-btn');
+    if (f.dataset.live !== 'true') {
+      msg.className = 'sub-msg err';
+      msg.textContent = 'The mailing list is not connected yet — please check back shortly.';
+      return;
+    }
+    btn.disabled = true; btn.textContent = 'Sending…';
+    fetch(f.action, { method: 'POST', body: new FormData(f), headers: { 'Accept': 'application/json' } })
+      .then(function (r) {
+        if (r.ok) { f.style.display = 'none'; msg.className = 'sub-msg ok';
+                     msg.textContent = "Thank you — you're on the list."; }
+        else { throw new Error('rejected'); }
+      })
+      .catch(function () {
+        btn.disabled = false; btn.textContent = 'Subscribe';
+        msg.className = 'sub-msg err';
+        msg.textContent = 'Something went wrong. Please try again in a moment.';
+      });
   });
+
+  /* ---- Sortable tables ---- */
+  document.querySelectorAll('table.sortable').forEach(function (tbl) {
+    tbl.querySelectorAll('th[data-sort]').forEach(function (th, idx) {
+      th.addEventListener('click', function () {
+        var body = tbl.tBodies[0], rows = Array.prototype.slice.call(body.rows);
+        var col = Array.prototype.indexOf.call(th.parentNode.children, th);
+        var desc = !th.classList.contains('desc');
+        tbl.querySelectorAll('th').forEach(function (o) { o.classList.remove('asc','desc'); });
+        th.classList.add(desc ? 'desc' : 'asc');
+        rows.sort(function (a, b) {
+          var x = a.cells[col].dataset.v, y = b.cells[col].dataset.v;
+          var nx = parseFloat(x), ny = parseFloat(y);
+          if (!isNaN(nx) && !isNaN(ny)) return desc ? ny - nx : nx - ny;
+          x = (x || a.cells[col].innerText).toLowerCase();
+          y = (y || b.cells[col].innerText).toLowerCase();
+          return desc ? (y > x ? 1 : -1) : (x > y ? 1 : -1);
+        });
+        rows.forEach(function (r) { body.appendChild(r); });
+      });
+    });
+  });
+
+  /* ---- Coverage filter ---- */
+  var filt = document.getElementById('cov-filter');
+  if (filt) {
+    var chips = document.querySelectorAll('[data-filter]');
+    chips.forEach(function (c) {
+      c.addEventListener('click', function (e) {
+        e.preventDefault();
+        chips.forEach(function (o) { o.classList.remove('chip-ow'); o.classList.add('chip-mute'); });
+        c.classList.remove('chip-mute'); c.classList.add('chip-ow');
+        var want = c.dataset.filter;
+        document.querySelectorAll('[data-rating]').forEach(function (row) {
+          row.style.display = (want === 'all' || row.dataset.rating === want) ? '' : 'none';
+        });
+      });
+    });
+  }
 })();
 </script>
 

@@ -1,0 +1,13 @@
+{
+  "site_name": "ND Capital",
+  "tagline": "AI-Powered Technology Equity Research",
+  "base_url": "",
+
+  "_formspree_comment": "Create a free form at https://formspree.io, then paste the form ID here (the part after /f/ in the endpoint URL, e.g. 'xayzbwqd'). Until this is filled in, the subscribe form shows a friendly 'not live yet' message instead of silently losing emails.",
+  "formspree_id": "",
+
+  "newsletter_heading": "Market intelligence in your inbox, every morning before the open.",
+  "newsletter_sub": "The morning brief, rating changes, and every note we publish. Free while in beta. No spam, unsubscribe anytime.",
+
+  "disclaimer": "The content published on this website is for informational and educational purposes only and does not constitute investment advice, a recommendation, or an offer or solicitation to buy or sell any security. Ratings, target prices and analyses shown here reflect the output of an experimental, AI-assisted research process and may be incorrect or outdated. Market data is provided by third parties and may be delayed or inaccurate; indicative prices shown are derived from vendor multiples and are not exchange prints. Past performance is not indicative of future results. ND Capital and its operators accept no liability for any loss arising from the use of this information. Always do your own research and consult a licensed financial advisor before making investment decisions."
+}
